@@ -4,7 +4,7 @@ import helmet from 'helmet'
 import { Server } from 'http'
 import dotenv from 'dotenv-safe'
 
-import { IMoviesRepository } from '../repository/repository'
+import { ICinemaCatalogRepository } from '../repository/repository'
 
 dotenv.config()
 var server: Server | null = null
@@ -13,11 +13,11 @@ interface IServerCallBack {
     (err: Error | null, server: Server | null): void
 }
 
-interface API {
-    (app: Express, repository: IMoviesRepository | null): void
+export interface API {
+    (app: Express, repository: ICinemaCatalogRepository | null): void
 }
 
-function start(api: API, repository: IMoviesRepository | null, callback: IServerCallBack): void {
+function start(api: API, repository: ICinemaCatalogRepository | null, callback: IServerCallBack): void {
     const app = express()
     app.use(morgan('dev'))
     app.use(helmet())

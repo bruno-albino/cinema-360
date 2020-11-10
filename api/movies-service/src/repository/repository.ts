@@ -1,4 +1,4 @@
-import { Collection, MongoCallback, ObjectId } from 'mongodb'
+import { MongoCallback } from 'mongodb'
 import mongodb from '../config/mongodb'
 import { IMovies } from '../interfaces/Movies'
 

@@ -10,5 +10,5 @@ test('MongoDB Connection', () => {
 })
 
 test('MongoDB Disconnection', () => {
-    expect(mongodb.disconnect()).toBe(true)
+    expect(mongodb.disconnect()).toEqual(true)
 })
