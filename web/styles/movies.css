@@ -1,0 +1,19 @@
+#movies-page {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#movies-page main {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 20px;
+    text-align: center;
+    height: 100px;
+}

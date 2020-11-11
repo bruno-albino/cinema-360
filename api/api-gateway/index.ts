@@ -1,9 +1,10 @@
 import http from 'http'
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
 import httpProxy from 'express-http-proxy'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import helmet from 'helmet'
+import cors from 'cors'
 
 const app = express()
 const moviesServiceProxy = httpProxy('http://localhost:3001')
@@ -21,6 +22,7 @@ app.get('/cities/:city/cinemas', cinemaCatalogServiceProxy)
 app.get('/cinemas/:cinema/movies', cinemaCatalogServiceProxy)
 app.get('/cinemas/:cinema/movies/:movie', cinemaCatalogServiceProxy)
 
+app.use(cors())
 app.use(logger('dev'))
 app.use(helmet())
 app.use(express.json())
