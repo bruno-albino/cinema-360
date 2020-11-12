@@ -7,10 +7,13 @@ import helmet from 'helmet'
 import cors from 'cors'
 
 const app = express()
-const moviesServiceProxy = httpProxy('http://localhost:3001')
-const cinemaCatalogServiceProxy = httpProxy('http://localhost:3002')
+const moviesServiceProxy = httpProxy('movies-service-container:3001')
+const cinemaCatalogServiceProxy = httpProxy('cinema-catalog-container:3002')
 
 //Proxy Request
+app.get('/', (req, res) => {
+    res.send({ message: 'foi '})
+})
 app.get('/movies', moviesServiceProxy)
 app.get('/movies/premieres', moviesServiceProxy)
 app.get('/movies/:id', moviesServiceProxy)
