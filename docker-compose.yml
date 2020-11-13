@@ -1,0 +1,27 @@
+version: "3.2"
+
+services:
+  cinema-catalog-ms:
+    context: './api/cinema-catalog-service'
+    ports:
+      - "9002:3002"
+  
+  movies-ms:
+    context: './api/movies-service'
+    
+    ports: 
+      - "9001:3001"
+
+  api-gateway:
+    context: './api/api-gateway'
+    ports:
+      - "9000:3000"
+
+    links: 
+      - "movies-ms"
+      - "cinema-catalog-ms"
+
+  web:
+    context: './web'
+    ports: 
+      - "3005: 3005"
