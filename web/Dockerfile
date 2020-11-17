@@ -10,4 +10,4 @@ COPY . /app
 RUN npm install --silent
 RUN npm install react-scripts@3.3.1 -g --silent
 # start app
-CMD ["next"]
+CMD ["yarn", "dev"]
