@@ -1,5 +1,6 @@
+import React from 'react'
 
-function MovieWrapper({ movie }) {
+const MovieWrapper: React.FC = () => {
     return (
         <div id='movie-wrapper'>
             <div className='movie-image' />

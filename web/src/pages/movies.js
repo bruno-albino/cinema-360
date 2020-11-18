@@ -14,7 +14,13 @@ function Movies({ movies }) {
   }
   
   export async function getStaticProps() {
-    const movies = await moviesRepository.getAll()
+    let movies = [] 
+    try {
+      movies = await moviesRepository.getAll()
+
+    } catch(err) {
+      console.log('AQUI')
+    }
 
     return {
       props: {
