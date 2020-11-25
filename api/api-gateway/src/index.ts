@@ -19,6 +19,7 @@ app.use(cookieParser())
 app.use('/', routes)
 
 const server = http.createServer(app)
-server.listen(3000, () => {
-    console.log(`API gateway listening on PORT 2222`)
+const port = 9000
+server.listen(port, () => {
+    console.log(`API gateway listening on PORT ${port}`)
 })

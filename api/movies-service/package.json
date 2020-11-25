@@ -22,7 +22,7 @@
   "scripts": {
     "start": "npm run build && node build/index.js",
     "test": "jest",
-    "start:dev": "nodemon ./src/index",
+    "start:dev": "nodemon -L ./src/index",
     "build": "rimraf ./build && tsc"
   },
   "dependencies": {

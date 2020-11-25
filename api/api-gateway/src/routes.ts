@@ -1,9 +1,10 @@
 import { Router } from "express"
-import { login, logout, verifyJWT } from './utils/jwt'
+import { login, logout, refreshToken, verifyJWT } from './utils/jwt'
 import httpProxy from 'express-http-proxy'
 
 const moviesServiceProxy = httpProxy('movies-ms:3001')
 const cinemaCatalogServiceProxy = httpProxy('cinema-catalog-ms:3002')
+
 //Proxy Request
 const routes = Router()
 
@@ -20,6 +21,7 @@ routes.get('//:cinema/movies/:movie', verifyJWT, cinemaCatalogServiceProxy)
 
 
 routes.post('/login', login)
-routes.get('/logout', logout)
+routes.post('/logout', logout)
+routes.post('/refresh', refreshToken)
 
 export default routes

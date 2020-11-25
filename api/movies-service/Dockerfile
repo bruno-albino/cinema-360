@@ -7,6 +7,6 @@ RUN npm i
 
 COPY . .
 
-EXPOSE 3001
+EXPOSE 9001
 
 CMD ["yarn", "start:dev"]

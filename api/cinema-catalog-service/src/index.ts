@@ -6,5 +6,5 @@ import repository from './repository/repository'
 config()
 
 server.start(cinemaCatalog, repository, () => {
-    console.log(`API listening on PORT ${process.env.PORT}`)
+    console.log(`Cinema Microsservice listening on PORT ${process.env.PORT}`)
 })

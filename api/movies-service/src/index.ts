@@ -6,5 +6,5 @@ import repository from './repository/repository'
 dotenv.config()
 
 server.start(movies, repository, () => {
-    console.log(`API listening on PORT: ${process.env.PORT}`)
+    console.log(`Movies Microsservice listening on PORT: ${process.env.PORT}`)
 })
