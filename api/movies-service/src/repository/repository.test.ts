@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb'
 import { IMovies } from '../interfaces/Movies';
 import repository from './repository'
 
-var id: ObjectId | null = null;
+var id: string | null = null;
 
 test('Repository getAllMovies', () => {
     repository.getAllMovies((err, movies) => {

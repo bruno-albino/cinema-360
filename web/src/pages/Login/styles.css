@@ -48,3 +48,10 @@
 #login-page form footer button:hover {
     background-color: rgb(109, 109, 109);
 }
+
+#login-page .home-button {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    width: 100px;
+}

@@ -1,6 +1,7 @@
-import { Router } from "express"
+import { Request, Response, Router } from "express"
 import { login, logout, refreshToken, verifyJWT } from './utils/jwt'
 import httpProxy from 'express-http-proxy'
+import SessionsModel, { ISession } from './models/sessions'
 
 const moviesServiceProxy = httpProxy('movies-ms:3001')
 const cinemaCatalogServiceProxy = httpProxy('cinema-catalog-ms:3002')

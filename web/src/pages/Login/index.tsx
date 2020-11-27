@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import sessionsRepository from '../../repositories/sessions'
 import './styles.css'
@@ -7,7 +7,14 @@ const Login: React.FC = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
+    const isLogged = !!localStorage.getItem('token')
     const history = useHistory()
+
+    useEffect(() => {
+        if(isLogged) {
+            history.push('/')
+        }
+    }, [])
 
     async function handleSubmit(e: FormEvent<HTMLElement> ) {
         e.preventDefault()
@@ -21,15 +28,14 @@ const Login: React.FC = () => {
             if(session.auth) {
                 localStorage.setItem('token', session.accessToken)
                 localStorage.setItem('refreshToken', session.refreshToken)
-                alert('foi')
-                handleNavigateToHome()
+                handleNextPage()
             }
         } catch(err) {
             alert(err.response.data.message)
         }
     }
 
-    function handleNavigateToHome() {
+    function handleNextPage() {
         const search = window.location.search;
         const params = new URLSearchParams(search); 
         const next = params.get('next');
@@ -41,8 +47,13 @@ const Login: React.FC = () => {
         history.push('')
     }
 
+    function handleNavigateToHome() {
+        history.push('')
+    }
+
     return (
         <div id='login-page'>
+            <button onClick={handleNavigateToHome} className='home-button black-button'>Início</button>
             <form onSubmit={handleSubmit}>
                 <h1>Cinema-360</h1>
                 <fieldset>

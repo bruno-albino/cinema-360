@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import MovieWrapper from '../../components/MoviesWrapper'
-import Container from '../../components/Container'
-
 import moviesRepository, { IMovies } from '../../repositories/movies'
 import sessionsRepository from '../../repositories/sessions'
 
-import './styles.css'
-
-const Movies: React.FC = () => {
+const Cinemas: React.FC = () => {
     const [movies, setMovies] = useState<IMovies[]>([])
     const history = useHistory()
 
@@ -40,18 +36,15 @@ const Movies: React.FC = () => {
     history.push('')
   }
 
-  function handleNavigateToMovie(id: string) {
-    history.push(`movies/${id}`)
-  }
-
   return (
-    <Container id='movies-page'>
+    <div id='movies-page'>
       <h1>Filmes</h1>
       <main>
-        {movies.map(movie => <MovieWrapper onClick={handleNavigateToMovie} movie={movie}/>)}
+        {movies.map(movie => <MovieWrapper onClick={() => {}} movie={movie}/>)}
       </main>
-    </Container>
+      <button onClick={handleLogout} type='button'>Logout</button>
+    </div>
   )
 }
 
-export default Movies
+export default Cinemas

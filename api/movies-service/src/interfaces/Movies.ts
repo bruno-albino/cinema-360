@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 
 export interface IMovies {
-    _id: ObjectId | null;
+    _id: string | null;
     titulo: string;
     sinpose: string;
     duracao: number;

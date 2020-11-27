@@ -1,0 +1,26 @@
+#movies-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+/* #movies-page button {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    height: 45px;
+    border: 3px solid black;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+#movies-page button:hover {
+    background-color: white;
+    color: black;
+} */

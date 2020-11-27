@@ -1,0 +1,11 @@
+#movie-wrapper {
+    border: 3px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#movie-wrapper:hover {
+    color: white;
+    background-color: black;
+}

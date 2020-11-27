@@ -17,7 +17,12 @@ const login = async (user: IUser): Promise<ResponseSession> => {
 }
 
 const logout = async (): Promise<void> => {
-    await api.post('logout')
+    const token = localStorage.getItem('refreshToken')
+    const response = await api.post('logout', {
+        token
+    })
+    localStorage.clear()
+    return response.data
 }
 
 const sessionsRepository = {
